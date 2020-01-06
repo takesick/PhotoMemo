@@ -16,6 +16,7 @@ import com.example.photomemo.R;
 import com.example.photomemo.data.PhotoData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PhotosFragment extends Fragment implements PhotosContract.View {
     private PhotosContract.Presenter mPresenter;
@@ -65,7 +66,7 @@ public class PhotosFragment extends Fragment implements PhotosContract.View {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.showAddPhoto();
+                mPresenter.AddPhoto();
             }
         });
         return root;
@@ -82,5 +83,10 @@ public class PhotosFragment extends Fragment implements PhotosContract.View {
     public void setPresenter(PhotosContract.Presenter presenter) {
         mPresenter = presenter;
     }
+
+    public void showPhotos(List<PhotoData> photos) {
+        mAdapter.replaceData(photos);
+    }
+
 
 }

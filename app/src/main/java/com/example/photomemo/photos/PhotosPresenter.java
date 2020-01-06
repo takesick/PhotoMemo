@@ -24,7 +24,13 @@ public class PhotosPresenter implements PhotosContract.Presenter {
         mPhotosRepository.removePhoto(index);
     }
 
-    public void showAddPhoto() {
-        mPhotosActivity.showAddPhoto();
+    public void AddPhoto() {
+        mPhotosActivity.AddPhoto();
     }
+
+    public void result() {
+        List<PhotoData> photos = mPhotosRepository.getPhotos();
+        mPhotosView.showPhotos(photos);
+    }
+
 }

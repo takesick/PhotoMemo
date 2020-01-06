@@ -7,16 +7,16 @@ import java.util.List;
 public interface PhotosContract {
     interface View {
         void setPresenter(Presenter presenter);
-
+        void showPhotos(List<PhotoData> photos);
     }
 
     interface Presenter {
         void removePhoto(int index);
-        void showAddPhoto();
-//        void replaceData(List<PhotoData> photos);
+        void AddPhoto();
+        void result();
     }
 
     interface Activity {
-        void showAddPhoto();
+        void AddPhoto();
     }
 }

@@ -63,8 +63,8 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         return mData.size();
     }
 
-//    public void replaceData(List<PhotoData> photos) {
-//        mData = photos;
-//        notifyDataSetChanged();
-//    }
+    public void replaceData(List<PhotoData> photos) {
+        mData = photos;
+        notifyDataSetChanged();
+    }
 }

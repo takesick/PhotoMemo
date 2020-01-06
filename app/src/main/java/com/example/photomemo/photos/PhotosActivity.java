@@ -7,7 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.photomemo.R;
 import com.example.photomemo.addphoto.AddPhotoActivity;
+import com.example.photomemo.data.PhotoData;
 import com.example.photomemo.data.PhotoRepository;
+import com.example.photomemo.photodetail.PhotoDetailActivity;
+
+import java.util.List;
 
 import static com.example.photomemo.addphoto.AddPhotoActivity.REQUEST_ADD_PHOTO;
 
@@ -23,9 +27,15 @@ public class PhotosActivity extends AppCompatActivity implements PhotosContract.
         mPresenter = new PhotosPresenter(PhotoRepository.getInstance(), fragment, this);
     }
 
-    public void showAddPhoto() {
+    public void AddPhoto() {
         Intent intent = new Intent(this, AddPhotoActivity.class);
         startActivityForResult(intent, REQUEST_ADD_PHOTO);
+    }
+
+    public void showPhotoDetails(int index) {
+        Intent intent = new Intent(this, PhotoDetailActivity.class);
+        intent.putExtra(PhotoDetailActivity.EXTRA_DATA_INDEX, index);
+        startActivity(intent);
     }
 
     @Override
@@ -34,11 +44,7 @@ public class PhotosActivity extends AppCompatActivity implements PhotosContract.
             return;
         if (resultCode != RESULT_OK)
             return;
-        /* data の getData() で選択された画像の URI が取れるので、
-        それを ImageView に設定すれば画像が表示される。 */
-//        Uri uri = data.getData();
-        /* Layout に入れた ImageView に java コードからアクセスするには
-        findViewById() を使ってインスタンスを取得すればよい。 */
-//        mPresenter.result(resultCode == RESULT_OK, uri);
+        mPresenter.result();
     }
+
 }

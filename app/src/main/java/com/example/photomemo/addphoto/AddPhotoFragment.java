@@ -13,7 +13,6 @@ import android.widget.ImageView;
 
 import com.example.photomemo.R;
 
-import static android.app.Activity.RESULT_OK;
 
 public class AddPhotoFragment extends Fragment implements AddPhotoContract.View {
     private AddPhotoContract.Presenter mPresenter;

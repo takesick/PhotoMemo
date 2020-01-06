@@ -25,7 +25,7 @@ public class PhotoRepository {
     }
 
     public void removePhoto(int index) {
-        mTemporaryPhotoUri = null;
+        mPhotos.remove(index);
     }
 
     public void setTemporaryPhoto(Uri uri) {
